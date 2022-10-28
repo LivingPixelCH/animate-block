@@ -11,6 +11,10 @@
     "html": false
   },
   "attributes": {
+    "once": {
+      "type": "boolean",
+      "default": false
+    },
     "animation": {
       "type": "string",
       "default": "fade-up"

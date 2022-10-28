@@ -48,6 +48,7 @@ function Edit(_ref) {
     setAttributes
   } = _ref;
   const {
+    once,
     animation,
     duration,
     delay,
@@ -63,7 +64,14 @@ function Edit(_ref) {
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Settings", "animate-block"),
     initialOpen: true
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.SelectControl, {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CheckboxControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Play only once", "animate-block"),
+    help: once ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Animation plays only once", "animate-block") : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Animation plays every time", "animate-block"),
+    checked: once,
+    onChange: once => setAttributes({
+      once
+    })
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.SelectControl, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Animation", "animate-block"),
     value: animation,
     options: [{
@@ -161,7 +169,8 @@ function Edit(_ref) {
     "data-aos": animation,
     "data-aos-duration": duration,
     "data-aos-delay": delay,
-    "data-aos-offset": offset
+    "data-aos-offset": offset,
+    "data-aos-once": once
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, null))));
 }
 
@@ -354,7 +363,7 @@ function _extends() {
 /***/ (function(module) {
 
 "use strict";
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"livingpixel-blocks/animate-block","version":"1.0.0","title":"Animate Block","category":"widgets","icon":"smiley","description":"Animate blocks on scroll.","supports":{"html":false},"attributes":{"animation":{"type":"string","default":"fade-up"},"duration":{"type":"integer","default":1000},"delay":{"type":"integer","default":50},"offset":{"type":"integer","default":200}},"textdomain":"animate-block","editorScript":"file:./index.js","viewScript":"file:./frontend.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"livingpixel-blocks/animate-block","version":"1.0.0","title":"Animate Block","category":"widgets","icon":"smiley","description":"Animate blocks on scroll.","supports":{"html":false},"attributes":{"once":{"type":"boolean","default":false},"animation":{"type":"string","default":"fade-up"},"duration":{"type":"integer","default":1000},"delay":{"type":"integer","default":50},"offset":{"type":"integer","default":200}},"textdomain":"animate-block","editorScript":"file:./index.js","viewScript":"file:./frontend.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

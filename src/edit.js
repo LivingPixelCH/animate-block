@@ -10,6 +10,7 @@ import {
 	PanelBody,
 	PanelRow,
 	SelectControl,
+	CheckboxControl,
 	__experimentalNumberControl as NumberControl,
 } from "@wordpress/components";
 import AOS from "aos";
@@ -18,7 +19,7 @@ import "aos/dist/aos.css";
 import "./editor.scss";
 
 export default function Edit({ attributes, setAttributes }) {
-	const { animation, duration, delay, offset } = attributes;
+	const { once, animation, duration, delay, offset } = attributes;
 
 	useEffect(() => {
 		AOS.init();
@@ -29,6 +30,19 @@ export default function Edit({ attributes, setAttributes }) {
 			<InspectorControls key="aos-settings">
 				<Panel header={__("Settings", "animate-block")}>
 					<PanelBody title={__("Settings", "animate-block")} initialOpen={true}>
+						<PanelRow>
+							<CheckboxControl
+								label={__("Play only once", "animate-block")}
+								help={
+									once
+										? __("Animation plays only once", "animate-block")
+										: __("Animation plays every time", "animate-block")
+								}
+								checked={once}
+								onChange={(once) => setAttributes({ once })}
+							/>
+						</PanelRow>
+
 						<PanelRow>
 							<SelectControl
 								label={__("Animation", "animate-block")}
@@ -98,6 +112,7 @@ export default function Edit({ attributes, setAttributes }) {
 					data-aos-duration={duration}
 					data-aos-delay={delay}
 					data-aos-offset={offset}
+					data-aos-once={once}
 				>
 					<InnerBlocks />
 				</div>
