@@ -1,17 +1,18 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 2,
-  "name": "create-block/animate-block",
-  "version": "0.1.0",
+  "name": "livingpixel-blocks/animate-block",
+  "version": "1.0.0",
   "title": "Animate Block",
   "category": "widgets",
   "icon": "smiley",
-  "description": "Example block scaffolded with Create Block tool.",
+  "description": "Animate blocks on scroll.",
   "supports": {
     "html": false
   },
   "textdomain": "animate-block",
   "editorScript": "file:./index.js",
+  "viewScript": "file:./frontend.js",
   "editorStyle": "file:./index.css",
   "style": "file:./style-index.css"
 }

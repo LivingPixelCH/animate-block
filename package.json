@@ -16,5 +16,8 @@
 	},
 	"devDependencies": {
 		"@wordpress/scripts": "^24.4.0"
+	},
+	"dependencies": {
+		"aos": "^2.3.4"
 	}
 }
