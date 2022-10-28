@@ -48,7 +48,10 @@ function Edit(_ref) {
     setAttributes
   } = _ref;
   const {
-    animation
+    animation,
+    duration,
+    delay,
+    offset
   } = attributes;
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
     aos__WEBPACK_IMPORTED_MODULE_4___default().init();
@@ -127,14 +130,38 @@ function Edit(_ref) {
       label: "Zoom out left",
       value: "zoom-out-left"
     }],
-    onChange: animation => {
-      aos__WEBPACK_IMPORTED_MODULE_4___default().refresh();
-      setAttributes({
-        animation
-      });
-    }
+    onChange: animation => setAttributes({
+      animation
+    })
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalNumberControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Duration", "animate-block"),
+    isShiftStepEnabled: true,
+    onChange: duration => setAttributes({
+      duration
+    }),
+    shiftStep: 10,
+    value: duration
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalNumberControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Delay", "animate-block"),
+    isShiftStepEnabled: true,
+    onChange: delay => setAttributes({
+      delay
+    }),
+    shiftStep: 10,
+    value: delay
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalNumberControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Offset", "animate-block"),
+    isShiftStepEnabled: true,
+    onChange: offset => setAttributes({
+      offset
+    }),
+    shiftStep: 10,
+    value: offset
   }))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    "data-aos": animation
+    "data-aos": animation,
+    "data-aos-duration": duration,
+    "data-aos-delay": delay,
+    "data-aos-offset": offset
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, null))));
 }
 
@@ -327,7 +354,7 @@ function _extends() {
 /***/ (function(module) {
 
 "use strict";
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"livingpixel-blocks/animate-block","version":"1.0.0","title":"Animate Block","category":"widgets","icon":"smiley","description":"Animate blocks on scroll.","supports":{"html":false},"attributes":{"animation":{"type":"string","default":"fade-up"}},"textdomain":"animate-block","editorScript":"file:./index.js","viewScript":"file:./frontend.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"livingpixel-blocks/animate-block","version":"1.0.0","title":"Animate Block","category":"widgets","icon":"smiley","description":"Animate blocks on scroll.","supports":{"html":false},"attributes":{"animation":{"type":"string","default":"fade-up"},"duration":{"type":"integer","default":1000},"delay":{"type":"integer","default":50},"offset":{"type":"integer","default":200}},"textdomain":"animate-block","editorScript":"file:./index.js","viewScript":"file:./frontend.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

@@ -10,15 +10,15 @@ import {
 	PanelBody,
 	PanelRow,
 	SelectControl,
+	__experimentalNumberControl as NumberControl,
 } from "@wordpress/components";
-
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 import "./editor.scss";
 
 export default function Edit({ attributes, setAttributes }) {
-	const { animation } = attributes;
+	const { animation, duration, delay, offset } = attributes;
 
 	useEffect(() => {
 		AOS.init();
@@ -56,17 +56,49 @@ export default function Edit({ attributes, setAttributes }) {
 									{ label: "Zoom out right", value: "zoom-out-right" },
 									{ label: "Zoom out left", value: "zoom-out-left" },
 								]}
-								onChange={(animation) => {
-									AOS.refresh();
-									setAttributes({ animation });
-								}}
+								onChange={(animation) => setAttributes({ animation })}
+							/>
+						</PanelRow>
+
+						<PanelRow>
+							<NumberControl
+								label={__("Duration", "animate-block")}
+								isShiftStepEnabled={true}
+								onChange={(duration) => setAttributes({ duration })}
+								shiftStep={10}
+								value={duration}
+							/>
+						</PanelRow>
+
+						<PanelRow>
+							<NumberControl
+								label={__("Delay", "animate-block")}
+								isShiftStepEnabled={true}
+								onChange={(delay) => setAttributes({ delay })}
+								shiftStep={10}
+								value={delay}
+							/>
+						</PanelRow>
+
+						<PanelRow>
+							<NumberControl
+								label={__("Offset", "animate-block")}
+								isShiftStepEnabled={true}
+								onChange={(offset) => setAttributes({ offset })}
+								shiftStep={10}
+								value={offset}
 							/>
 						</PanelRow>
 					</PanelBody>
 				</Panel>
 			</InspectorControls>
 			<div {...useBlockProps()}>
-				<div data-aos={animation}>
+				<div
+					data-aos={animation}
+					data-aos-duration={duration}
+					data-aos-delay={delay}
+					data-aos-offset={offset}
+				>
 					<InnerBlocks />
 				</div>
 			</div>

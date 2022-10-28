@@ -14,6 +14,18 @@
 		"animation": {
 			"type": "string",
 			"default": "fade-up"
+		},
+		"duration": {
+			"type": "integer",
+			"default": 1000
+		},
+		"delay": {
+			"type": "integer",
+			"default": 50
+		},
+		"offset": {
+			"type": "integer",
+			"default": 200
 		}
 	},
 	"textdomain": "animate-block",
