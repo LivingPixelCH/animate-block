@@ -1,5 +1,9 @@
 import AOS from "aos";
 
+window.aos = null;
+
 document.addEventListener("DOMContentLoaded", () => {
-	AOS.init();
+	if (!window.aos) {
+		window.aos = AOS.init();
+	}
 });
