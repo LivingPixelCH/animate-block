@@ -10,6 +10,12 @@
 	"supports": {
 		"html": false
 	},
+	"attributes": {
+		"animation": {
+			"type": "string",
+			"default": "fade-up"
+		}
+	},
 	"textdomain": "animate-block",
 	"editorScript": "file:./index.js",
 	"viewScript": "file:./frontend.js",
