@@ -44,7 +44,7 @@ export default function Edit({ attributes, setAttributes }) {
 		<>
 			<InspectorControls key="aos-settings">
 				<Panel header={__("Settings", "animate-block")}>
-					<PanelBody title={__("Settings", "animate-block")} initialOpen={true}>
+					<PanelBody title={__("General", "animate-block")} initialOpen={true}>
 						<PanelRow>
 							<CheckboxControl
 								label={__("Play only once", "animate-block")}
@@ -105,15 +105,9 @@ export default function Edit({ attributes, setAttributes }) {
 								onChange={(easing) => setAttributes({ easing })}
 							/>
 						</PanelRow>
+					</PanelBody>
 
-						<PanelRow>
-							<TextControl
-								label={__("Anchor", "animate-block")}
-								value={anchor}
-								onChange={(anchor) => setAttributes({ anchor })}
-							/>
-						</PanelRow>
-
+					<PanelBody title={__("Anchor", "animate-block")} initialOpen={false}>
 						<PanelRow>
 							<SelectControl
 								label={__("Anchor Placement", "animate-block")}
@@ -122,6 +116,14 @@ export default function Edit({ attributes, setAttributes }) {
 								onChange={(anchorPlacement) =>
 									setAttributes({ anchorPlacement })
 								}
+							/>
+						</PanelRow>
+
+						<PanelRow>
+							<TextControl
+								label={__("Anchor", "animate-block")}
+								value={anchor}
+								onChange={(anchor) => setAttributes({ anchor })}
 							/>
 						</PanelRow>
 					</PanelBody>
