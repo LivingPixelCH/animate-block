@@ -3,7 +3,7 @@ import { InnerBlocks, useBlockProps } from "@wordpress/block-editor";
 import "aos/dist/aos.css";
 
 export default function save({ attributes }) {
-	const { once, animation, duration, delay, offset } = attributes;
+	const { once, animation, duration, delay, offset, easing } = attributes;
 
 	return (
 		<div
@@ -13,6 +13,7 @@ export default function save({ attributes }) {
 			data-aos-delay={delay}
 			data-aos-offset={offset}
 			data-aos-once={once}
+			data-aos-easing={easing}
 		>
 			<InnerBlocks.Content />
 		</div>

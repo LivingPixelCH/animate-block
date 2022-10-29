@@ -13,13 +13,15 @@ import {
 	CheckboxControl,
 	__experimentalNumberControl as NumberControl,
 } from "@wordpress/components";
+import easingOptions from "./options/easing";
+import animationOptions from "./options/animation";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 import "./editor.scss";
 
 export default function Edit({ attributes, setAttributes }) {
-	const { once, animation, duration, delay, offset } = attributes;
+	const { once, animation, duration, delay, offset, easing } = attributes;
 
 	useEffect(() => {
 		AOS.init();
@@ -47,29 +49,7 @@ export default function Edit({ attributes, setAttributes }) {
 							<SelectControl
 								label={__("Animation", "animate-block")}
 								value={animation}
-								options={[
-									{ label: "Fade up", value: "fade-up" },
-									{ label: "Fade down", value: "fade-down" },
-									{ label: "Fade right", value: "fade-right" },
-									{ label: "Fade left", value: "fade-left" },
-									{ label: "Fade up right", value: "fade-up-right" },
-									{ label: "Fade up left", value: "fade-up-left" },
-									{ label: "Fade down right", value: "fade-down-right" },
-									{ label: "Fade down left", value: "fade-down-left" },
-									{ label: "Flip left", value: "flip-left" },
-									{ label: "Flip right", value: "flip-right" },
-									{ label: "Flip up", value: "flip-up" },
-									{ label: "Zoom in", value: "zoom-in" },
-									{ label: "Zoom in up", value: "zoom-in-up" },
-									{ label: "Zoom in down", value: "zoom-in-down" },
-									{ label: "Zoom in left", value: "zoom-in-left" },
-									{ label: "Zoom in right", value: "zoom-in-right" },
-									{ label: "Zoom out", value: "zoom-out" },
-									{ label: "Zoom out up", value: "zoom-out-up" },
-									{ label: "Zoom out down", value: "zoom-out-down" },
-									{ label: "Zoom out right", value: "zoom-out-right" },
-									{ label: "Zoom out left", value: "zoom-out-left" },
-								]}
+								options={animationOptions}
 								onChange={(animation) => setAttributes({ animation })}
 							/>
 						</PanelRow>
@@ -103,6 +83,15 @@ export default function Edit({ attributes, setAttributes }) {
 								value={offset}
 							/>
 						</PanelRow>
+
+						<PanelRow>
+							<SelectControl
+								label={__("Easing", "animate-block")}
+								value={easing}
+								options={easingOptions}
+								onChange={(easing) => setAttributes({ easing })}
+							/>
+						</PanelRow>
 					</PanelBody>
 				</Panel>
 			</InspectorControls>
@@ -113,6 +102,7 @@ export default function Edit({ attributes, setAttributes }) {
 					data-aos-delay={delay}
 					data-aos-offset={offset}
 					data-aos-once={once}
+					data-aos-easing={easing}
 				>
 					<InnerBlocks />
 				</div>

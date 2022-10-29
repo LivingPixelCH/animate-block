@@ -30,6 +30,10 @@
 		"offset": {
 			"type": "integer",
 			"default": 200
+		},
+		"easing": {
+			"type": "string",
+			"default": "ease"
 		}
 	},
 	"textdomain": "animate-block",
