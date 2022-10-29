@@ -34,6 +34,13 @@
 		"easing": {
 			"type": "string",
 			"default": "ease"
+		},
+		"anchor": {
+			"type": "string"
+		},
+		"anchorPlacement": {
+			"type": "string",
+			"default": "top-bottom"
 		}
 	},
 	"textdomain": "animate-block",

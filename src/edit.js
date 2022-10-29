@@ -10,18 +10,31 @@ import {
 	PanelBody,
 	PanelRow,
 	SelectControl,
+	TextControl,
 	CheckboxControl,
 	__experimentalNumberControl as NumberControl,
 } from "@wordpress/components";
+
 import easingOptions from "./options/easing";
 import animationOptions from "./options/animation";
+import anchorPlacementOptions from "./options/anchor-placement";
+
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 import "./editor.scss";
 
 export default function Edit({ attributes, setAttributes }) {
-	const { once, animation, duration, delay, offset, easing } = attributes;
+	const {
+		once,
+		animation,
+		duration,
+		delay,
+		offset,
+		easing,
+		anchor,
+		anchorPlacement,
+	} = attributes;
 
 	useEffect(() => {
 		AOS.init();
@@ -92,6 +105,25 @@ export default function Edit({ attributes, setAttributes }) {
 								onChange={(easing) => setAttributes({ easing })}
 							/>
 						</PanelRow>
+
+						<PanelRow>
+							<TextControl
+								label={__("Anchor", "animate-block")}
+								value={anchor}
+								onChange={(anchor) => setAttributes({ anchor })}
+							/>
+						</PanelRow>
+
+						<PanelRow>
+							<SelectControl
+								label={__("Anchor Placement", "animate-block")}
+								value={anchorPlacement}
+								options={anchorPlacementOptions}
+								onChange={(anchorPlacement) =>
+									setAttributes({ anchorPlacement })
+								}
+							/>
+						</PanelRow>
 					</PanelBody>
 				</Panel>
 			</InspectorControls>
@@ -103,6 +135,8 @@ export default function Edit({ attributes, setAttributes }) {
 					data-aos-offset={offset}
 					data-aos-once={once}
 					data-aos-easing={easing}
+					data-aos-anchor={anchor}
+					data-aos-anchor-placement={anchorPlacement}
 				>
 					<InnerBlocks />
 				</div>
