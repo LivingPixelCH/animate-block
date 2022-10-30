@@ -2,24 +2,29 @@
 Contributors:      The WordPress Contributors
 Tags:              block
 Tested up to:      6.0
-Stable tag:        0.1.0
+Stable tag:        0.6.0
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
-Example block scaffolded with Create Block tool.
+Create animated sections that fade in (or use different effects) while scrolling.
 
 == Description ==
 
-This is the long description. No limit, and you can use Markdown (as well as in the following sections).
+animate-block let's you define an outer block for a given section, which should be animated on scroll. 
 
-For backwards compatibility, if this section is missing, the full length of the short description will be used, and
-Markdown parsed.
+There are different options to choose for each animation, like:
+* if the section should be animated every time the sections comes into the viewport
+* different types of animation
+* the duration of the animation
+* the delay for the animation to start
+* offset for the animated section
+* type of the easing function
+* an optional anchor if the animation should start while another section comes into the viewport
+* the anchor placement
+
+This plugin uses the aos animation library (https://github.com/michalsnik/aos) and all functions of it are fully supported in this Gutenberg Block.
 
 == Installation ==
-
-This section describes how to install the plugin and get it working.
-
-e.g.
 
 1. Upload the plugin files to the `/wp-content/plugins/animate-block` directory, or install the plugin through the WordPress plugins screen directly.
 1. Activate the plugin through the 'Plugins' screen in WordPress
@@ -27,13 +32,13 @@ e.g.
 
 == Frequently Asked Questions ==
 
-= A question that someone might have =
+= I can't get it working what should I do? =
 
-An answer to that question.
+This plugin comes free and without any warranty or promised support. But if you run into a problem, please open an issue on github (https://github.com/LivingPixelCH/animate-block)
 
-= What about foo bar? =
+= I like this plugin, can I help? =
 
-Answer to foo bar dilemma.
+Yes sure. We love that you are willing to help. You can always provide improvements and features through a pull request. We are not promising though that every feature can be accepted and you may want to contact us first if you are unsure.
 
 == Screenshots ==
 
@@ -45,8 +50,8 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 
 == Changelog ==
 
-= 0.1.0 =
-* Release
+= 0.6.0 =
+* Initial Release
 
 == Arbitrary section ==
 
