@@ -27,6 +27,7 @@ jobs:
 
     - name: Release
       uses: softprops/action-gh-release@v1
+      if: startsWith(github.ref, 'refs/heads/release/')
       with:
         files: ${{ github.event.repository.name }}.zip
       env:
