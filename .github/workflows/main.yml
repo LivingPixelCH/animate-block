@@ -2,9 +2,9 @@ name: Deployment
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    tags:
+      - "v*.*.*"
+      
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -19,6 +19,7 @@ jobs:
     - name: Install dependencies
       run: |
         npm install
+        
     - name: Build
       run: npm run build
 
@@ -27,7 +28,6 @@ jobs:
 
     - name: Release
       uses: softprops/action-gh-release@v1
-      if: startsWith(github.ref, 'refs/heads/release/')
       with:
         files: ${{ github.event.repository.name }}.zip
       env:
