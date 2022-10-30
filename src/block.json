@@ -3,7 +3,7 @@
 	"apiVersion": 2,
 	"name": "livingpixel-blocks/animate-block",
 	"version": "0.6.0",
-	"title": "Animate Block",
+	"title": "LivingPixel - Animate Block",
 	"category": "widgets",
 	"icon": "smiley",
 	"description": "Animate blocks on scroll.",
@@ -43,7 +43,7 @@
 			"default": "top-bottom"
 		}
 	},
-	"textdomain": "animate-block",
+	"textdomain": "livingpixel-animate-block",
 	"editorScript": "file:./index.js",
 	"viewScript": "file:./frontend.js",
 	"editorStyle": "file:./index.css",
